@@ -1,0 +1,231 @@
+'use client';
+
+import React, { useState } from 'react';
+import { X, Building2, CheckCircle2, ShieldCheck } from 'lucide-react';
+
+interface B2BQuoteModalProps {
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose }) => {
+  const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    company: '',
+    name: '',
+    email: '',
+    phone: '',
+    serviceType: 'Private Label Manufacturing',
+    moq: '100 - 500 pcs',
+    gsmPreference: '280 GSM (Heavyweight)',
+    notes: ''
+  });
+
+  React.useEffect(() => {
+    if (isOpen) {
+      setSubmitted(false);
+    }
+  }, [isOpen]);
+
+  if (!isOpen) return null;
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+  };
+
+  return (
+    <div
+      onClick={onClose}
+      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6 bg-black/85 backdrop-blur-sm animate-fade-in"
+    >
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className="bg-[#121212] border border-[#2C2C2C] max-w-2xl w-full p-6 sm:p-10 relative max-h-[90vh] overflow-y-auto shadow-2xl"
+      >
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 text-[#FFFFFF] hover:text-[#FFB800] p-1 cursor-pointer"
+        >
+          <X className="w-6 h-6" />
+        </button>
+
+        <div className="flex items-center space-x-3 mb-6 pb-4 border-b border-[#2C2C2C]">
+          <div className="w-10 h-10 bg-[#FFB800] flex items-center justify-center text-[#121212]">
+            <Building2 className="w-6 h-6" />
+          </div>
+          <div>
+            <span className="font-hanken text-[10px] font-bold text-[#FFB800] uppercase tracking-widest block">
+              B2B & PRIVATE LABEL SUPPLY
+            </span>
+            <h3 className="font-anton text-2xl sm:text-3xl text-[#FFFFFF] uppercase">
+              WHOLESALE & MANUFACTURING INQUIRY
+            </h3>
+          </div>
+        </div>
+
+        {submitted ? (
+          <div className="bg-[#1c1b1b] border border-[#FFB800] p-8 text-center space-y-4">
+            <CheckCircle2 className="w-16 h-16 text-[#FFB800] mx-auto" />
+            <h4 className="font-anton text-2xl text-[#FFFFFF] uppercase">
+              INQUIRY RECEIVED
+            </h4>
+            <p className="font-hanken text-xs text-[#c6c6c7] max-w-md mx-auto leading-relaxed">
+              Thank you, <span className="text-[#FFFFFF]">{form.name}</span> from <span className="text-[#FFB800]">{form.company || 'your brand'}</span>.
+              Ahad Hossain (Head of Business Development) will send a tailored catalog, sample swatches specification, and pricing quote to <span className="text-[#FFB800]">{form.email}</span> within 24 hours.
+            </p>
+            <div className="pt-4">
+              <button
+                onClick={onClose}
+                className="bg-[#FFB800] text-[#121212] font-anton text-sm px-8 py-3 uppercase hover:bg-[#e0a200]"
+              >
+                BACK TO OVERVIEW
+              </button>
+            </div>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className="space-y-5">
+            <p className="font-hanken text-xs text-[#c6c6c7]">
+              Leverage Wolfon&apos;s direct factory infrastructure in Bangladesh. We produce custom 240-360 GSM heavyweight garments, private label tagging, and raw fabric shipments worldwide.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                  COMPANY / BRAND NAME *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={form.company}
+                  onChange={(e) => setForm({ ...form, company: e.target.value })}
+                  placeholder="e.g. Apex Apparel Studio"
+                  className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                  CONTACT PERSON *
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={form.name}
+                  onChange={(e) => setForm({ ...form, name: e.target.value })}
+                  placeholder="Full Name"
+                  className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                  BUSINESS EMAIL *
+                </label>
+                <input
+                  type="email"
+                  required
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder="name@company.com"
+                  className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
+                />
+              </div>
+
+              <div>
+                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                  PHONE / WHATSAPP
+                </label>
+                <input
+                  type="text"
+                  value={form.phone}
+                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                  placeholder="+1 (555) 000-0000"
+                  className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                  SERVICE TYPE
+                </label>
+                <select
+                  value={form.serviceType}
+                  onChange={(e) => setForm({ ...form, serviceType: e.target.value })}
+                  className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
+                >
+                  <option>Wolfon Product Supply</option>
+                  <option>Custom Private Label</option>
+                  <option>Raw Material Supply</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                  ESTIMATED MOQ
+                </label>
+                <select
+                  value={form.moq}
+                  onChange={(e) => setForm({ ...form, moq: e.target.value })}
+                  className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
+                >
+                  <option>100 - 500 pcs</option>
+                  <option>500 - 2,000 pcs</option>
+                  <option>2,000 - 10,000 pcs</option>
+                  <option>10,000+ pcs</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                  FABRIC GSM
+                </label>
+                <select
+                  value={form.gsmPreference}
+                  onChange={(e) => setForm({ ...form, gsmPreference: e.target.value })}
+                  className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
+                >
+                  <option>240 GSM (Midweight)</option>
+                  <option>280 GSM (Heavyweight)</option>
+                  <option>320 GSM (Super Heavy)</option>
+                  <option>360 GSM (Fleece/Outerwear)</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                ADDITIONAL SPECIFICATIONS
+              </label>
+              <textarea
+                rows={3}
+                value={form.notes}
+                onChange={(e) => setForm({ ...form, notes: e.target.value })}
+                placeholder="Mention custom wash, embroidery, screen-printing, woven neck labels, or custom packaging..."
+                className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none resize-none"
+              />
+            </div>
+
+            <div className="pt-2 flex items-center justify-between">
+              <div className="flex items-center space-x-2 text-[10px] text-[#9e8f78] uppercase font-hanken">
+                <ShieldCheck className="w-4 h-4 text-[#FFB800]" />
+                <span>DIRECT FACTORY COSTING • BANGLADESH SUPPLY CHAIN</span>
+              </div>
+
+              <button
+                type="submit"
+                className="bg-[#FFB800] text-[#121212] font-anton text-base tracking-widest px-8 py-3.5 uppercase hover:bg-[#e0a200] transition-colors cursor-pointer"
+              >
+                REQUEST B2B QUOTE
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+    </div>
+  );
+};
