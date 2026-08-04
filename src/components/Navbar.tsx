@@ -37,9 +37,8 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-[#2C2C2C] ${
-        scrolled ? 'bg-[#121212]/95 backdrop-blur-md py-4' : 'bg-[#121212] py-5'
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b border-[#2C2C2C] ${scrolled ? 'bg-[#121212]/95 backdrop-blur-md py-4' : 'bg-[#121212] py-5'
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}
@@ -72,7 +71,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => scrollToSection('drop-shoulder')}
             className="hover:text-[#FFB800] transition-colors cursor-pointer"
           >
-            GARMENT CATALOG
+            CATALOG
           </button>
           <button
             onClick={() => scrollToSection('upcoming')}
@@ -90,14 +89,14 @@ export const Navbar: React.FC<NavbarProps> = ({
             onClick={() => scrollToSection('contact')}
             className="hover:text-[#FFB800] transition-colors cursor-pointer"
           >
-            CONTACT & B2B
+            CONTACT
           </button>
         </nav>
 
         {/* Action Icons */}
         <div className="flex items-center space-x-4 text-[#FFFFFF]">
           {/* Quote List Badge Button */}
-          <button
+          {/* <button
             onClick={onOpenInquiryList}
             aria-label="B2B Quote Basket"
             className="relative px-3 py-1.5 bg-[#1c1b1b] border border-[#2C2C2C] hover:border-[#FFB800] text-[#FFFFFF] hover:text-[#FFB800] transition-all cursor-pointer flex items-center space-x-2 text-[11px] font-hanken font-bold tracking-wider uppercase"
@@ -109,7 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {inquiryCount}
               </span>
             )}
-          </button>
+          </button> */}
 
           {/* Primary CTA: B2B Quote Modal */}
           <button
@@ -150,7 +149,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               onClick={() => scrollToSection('drop-shoulder')}
               className="text-left py-1 hover:text-[#FFB800]"
             >
-              GARMENT CATALOG
+              CATALOG
             </button>
             <button
               onClick={() => scrollToSection('upcoming')}
