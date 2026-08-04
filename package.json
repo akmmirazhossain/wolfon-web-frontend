@@ -10,7 +10,8 @@
     "dev:vite": "vite --port=3000 --host=0.0.0.0",
     "build:vite": "vite build",
     "clean": "rm -rf .next dist server.js",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "pages:build": "npx @cloudflare/next-on-pages"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

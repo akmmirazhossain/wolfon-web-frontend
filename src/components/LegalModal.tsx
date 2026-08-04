@@ -40,7 +40,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           {type === 'privacy' ? (
             <>
               <p>
-                <strong>1. Data Collection:</strong> Wolfon Monolith respects user privacy. We collect minimal customer information required exclusively to process order fulfillment, manufacturing quotes, and drop updates.
+                <strong>1. Data Collection:</strong> Wolfon respects user privacy. We collect minimal customer information required exclusively to process order fulfillment, manufacturing quotes, and drop updates.
               </p>
               <p>
                 <strong>2. Data Usage:</strong> Customer data is never sold or distributed to unauthorized third parties. All transactional communications are handled through encrypted, secure network protocols.
@@ -52,7 +52,7 @@ export const LegalModal: React.FC<LegalModalProps> = ({ type, onClose }) => {
           ) : (
             <>
               <p>
-                <strong>1. Wholesale & Retail Terms:</strong> Orders placed with Wolfon Monolith are subject to garment production specifications, minimum order quantity (MOQ) agreements, and international shipping protocols.
+                <strong>1. Wholesale & Retail Terms:</strong> Orders placed with Wolfon are subject to garment production specifications, minimum order quantity (MOQ) agreements, and international shipping protocols.
               </p>
               <p>
                 <strong>2. Quality Standards:</strong> Every garment undergoes strict quality inspection at our manufacturing facility in Bangladesh. Returns for defect items are accepted within 30 days of delivery.
