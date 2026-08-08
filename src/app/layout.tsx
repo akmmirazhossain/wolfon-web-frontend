@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import '../index.css';
 
 export const metadata: Metadata = {
-  title: 'WOLFON STYLE| Premium Apparel & Manufacturing',
+  title: 'WOLFON STYLE | Premium Apparel & Manufacturing',
   description: 'Premium apparel brand and customized manufacturing supply platform, featuring heavy-weight drop shoulder t-shirts, upcoming drops, and private label ordering.',
 };
 
