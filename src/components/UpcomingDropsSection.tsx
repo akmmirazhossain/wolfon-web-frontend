@@ -59,6 +59,30 @@ export const UpcomingDropsSection: React.FC<UpcomingDropsSectionProps> = ({ onNo
                 <p className="font-hanken text-[11px] text-[#9e8f78] uppercase mt-0.5">
                   {drop.category}
                 </p>
+
+                {/* Available Colorways */}
+                <div className="flex items-center space-x-2 mt-3">
+                  <span
+                    className="w-4 h-4 rounded-full border border-[#353534]"
+                    style={{ backgroundColor: '#FFFFFF' }}
+                    title="White"
+                  />
+                  <span
+                    className="w-4 h-4 rounded-full border border-[#353534]"
+                    style={{ backgroundColor: '#000000' }}
+                    title="Black"
+                  />
+                  <span
+                    className="w-4 h-4 rounded-full border border-[#353534]"
+                    style={{ backgroundColor: '#5C4033' }}
+                    title="Brown"
+                  />
+                  <span
+                    className="w-4 h-4 rounded-full border border-[#353534]"
+                    style={{ backgroundColor: '#808080' }}
+                    title="Gray"
+                  />
+                </div>
               </div>
             </div>
           ))}
