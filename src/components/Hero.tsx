@@ -28,12 +28,12 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onOpenB2B }) => {
         <img
           src={slide.bgImage}
           alt="Wolfon Premium Apparel Collection"
-          className="w-full h-full object-cover object-center filter brightness-50 contrast-125 transition-all duration-1000 ease-in-out scale-105"
+          className="w-full h-full object-cover object-center filter brightness-75 contrast-125 transition-all duration-1000 ease-in-out scale-105"
           referrerPolicy="no-referrer"
         />
         {/* Dark Overlays for text legibility and editorial mood */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/60 to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/90 via-[#121212]/40 to-transparent" />
+        {/* <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/70 via-[#121212]/20 to-transparent" /> */}
       </div>
 
       {/* Hero Content Box */}
@@ -83,9 +83,8 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onOpenB2B }) => {
               key={s.id}
               onClick={() => setCurrentSlide(idx)}
               aria-label={`Go to slide ${idx + 1}`}
-              className={`h-1.5 transition-all duration-300 cursor-pointer ${
-                currentSlide === idx ? 'w-16 bg-[#FFB800]' : 'w-8 bg-[#2C2C2C] hover:bg-[#514532]'
-              }`}
+              className={`h-1.5 transition-all duration-300 cursor-pointer ${currentSlide === idx ? 'w-16 bg-[#FFB800]' : 'w-8 bg-[#2C2C2C] hover:bg-[#514532]'
+                }`}
             />
           ))}
         </div>

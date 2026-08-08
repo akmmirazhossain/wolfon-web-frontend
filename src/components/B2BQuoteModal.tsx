@@ -18,6 +18,8 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
     serviceType: 'Private Label Manufacturing',
     moq: '100 - 500 pcs',
     gsmPreference: '280 GSM (Heavyweight)',
+    fabricType: '100% Cotton',
+    fabricColor: '#000000',
     notes: ''
   });
 
@@ -72,7 +74,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
             </h4>
             <p className="font-hanken text-xs text-[#c6c6c7] max-w-md mx-auto leading-relaxed">
               Thank you, <span className="text-[#FFFFFF]">{form.name}</span> from <span className="text-[#FFB800]">{form.company || 'your brand'}</span>.
-              Ahad Hossain (Head of Business Development) will send a tailored catalog, sample swatches specification, and pricing quote to <span className="text-[#FFB800]">{form.email}</span> within 24 hours.
+              Ahad Hossain (Head of Business Development & Client Management) will send a tailored catalog, sample swatches specification, and pricing quote to <span className="text-[#FFB800]">{form.email}</span> within 24 hours.
             </p>
             <div className="pt-4">
               <button
@@ -189,11 +191,58 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
                   onChange={(e) => setForm({ ...form, gsmPreference: e.target.value })}
                   className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
                 >
+                  <option>170 GSM (Lightweight)</option>
                   <option>240 GSM (Midweight)</option>
                   <option>280 GSM (Heavyweight)</option>
-                  <option>320 GSM (Super Heavy)</option>
-                  <option>360 GSM (Fleece/Outerwear)</option>
                 </select>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                  FABRIC TYPE
+                </label>
+                <select
+                  value={form.fabricType}
+                  onChange={(e) => setForm({ ...form, fabricType: e.target.value })}
+                  className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
+                >
+                  <option>100% Cotton</option>
+                  <option>Combed Cotton</option>
+                  <option>Organic Cotton</option>
+                  <option>Cotton Blend</option>
+                  <option>100% Polyester</option>
+                  <option>French Terry</option>
+                  <option>Fleece</option>
+                  <option>Piqué Cotton</option>
+                  <option>Jersey Knit</option>
+                  <option>Rib Knit</option>
+                  <option>Spandex Blend</option>
+                </select>
+              </div>
+
+              <div>
+                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                  FABRIC COLOR
+                </label>
+                <div className="flex items-center space-x-2">
+                  <input
+                    type="text"
+                    value={form.fabricColor}
+                    onChange={(e) => setForm({ ...form, fabricColor: e.target.value })}
+                    placeholder="#000000"
+                    pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
+                    className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none font-mono"
+                  />
+                  <input
+                    type="color"
+                    value={/^#([A-Fa-f0-9]{6})$/.test(form.fabricColor) ? form.fabricColor : '#000000'}
+                    onChange={(e) => setForm({ ...form, fabricColor: e.target.value })}
+                    className="w-11 h-[38px] bg-[#1c1b1b] border border-[#353534] cursor-pointer shrink-0"
+                    title="Pick a color"
+                  />
+                </div>
               </div>
             </div>
 

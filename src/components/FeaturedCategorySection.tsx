@@ -48,9 +48,9 @@ export const FeaturedCategorySection: React.FC<FeaturedCategorySectionProps> = (
                   className="relative aspect-[3/4] overflow-hidden bg-[#201f1f] cursor-pointer"
                 >
                   {/* Tag Badge */}
-                  <div className="absolute top-3 left-3 z-10 bg-[#FFB800] text-[#121212] font-hanken text-[10px] font-extrabold tracking-widest uppercase px-2.5 py-1">
+                  {/* <div className="absolute top-3 left-3 z-10 bg-[#FFB800] text-[#121212] font-hanken text-[10px] font-extrabold tracking-widest uppercase px-2.5 py-1">
                     {product.tag}
-                  </div>
+                  </div> */}
 
                   {/* MOQ Pill */}
                   <div className="absolute top-3 right-3 z-10 bg-[#121212]/90 border border-[#2C2C2C] text-[#e5e2e1] font-hanken text-[10px] font-bold tracking-wider uppercase px-2 py-0.5">
@@ -60,7 +60,7 @@ export const FeaturedCategorySection: React.FC<FeaturedCategorySectionProps> = (
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-full object-cover object-center grayscale contrast-125 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                    className="w-full h-full object-cover object-center contrast-125 group-hover:scale-105 transition-all duration-700 ease-out"
                     referrerPolicy="no-referrer"
                   />
 
@@ -84,11 +84,10 @@ export const FeaturedCategorySection: React.FC<FeaturedCategorySectionProps> = (
                         e.stopPropagation();
                         onAddToInquiryList(product);
                       }}
-                      className={`pointer-events-auto w-full max-w-[200px] py-2.5 px-3 font-anton tracking-wider text-xs uppercase transition-colors cursor-pointer flex items-center justify-center space-x-2 ${
-                        isInquired
-                          ? 'bg-[#2a2a2a] text-[#FFB800] border border-[#FFB800]'
-                          : 'bg-[#FFB800] text-[#121212] hover:bg-[#e0a200]'
-                      }`}
+                      className={`pointer-events-auto w-full max-w-[200px] py-2.5 px-3 font-anton tracking-wider text-xs uppercase transition-colors cursor-pointer flex items-center justify-center space-x-2 ${isInquired
+                        ? 'bg-[#2a2a2a] text-[#FFB800] border border-[#FFB800]'
+                        : 'bg-[#FFB800] text-[#121212] hover:bg-[#e0a200]'
+                        }`}
                     >
                       {isInquired ? (
                         <>
@@ -114,9 +113,7 @@ export const FeaturedCategorySection: React.FC<FeaturedCategorySectionProps> = (
                     >
                       {product.name}
                     </h3>
-                    <p className="font-hanken text-xs text-[#9e8f78] mt-1">
-                      {product.gsm} GSM • {product.fabric}
-                    </p>
+
                   </div>
 
                   <div className="pt-2 border-t border-[#2a2a2a] flex items-center justify-between text-[11px] font-hanken">

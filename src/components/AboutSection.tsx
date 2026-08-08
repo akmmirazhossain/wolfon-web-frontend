@@ -29,7 +29,7 @@ export const AboutSection: React.FC = () => {
               <img
                 src={ABOUT_STORY.editorialImage}
                 alt="Wolfon Editorial Streetwear"
-                className="w-full h-full object-cover object-center filter grayscale contrast-125 hover:scale-105 transition-transform duration-700"
+                className="w-full h-full object-cover object-center filter contrast-125 hover:scale-105 transition-transform duration-700"
                 referrerPolicy="no-referrer"
               />
               <div className="absolute bottom-4 left-4 bg-[#121212]/90 border border-[#2C2C2C] px-3 py-1.5 font-hanken text-[10px] text-[#9e8f78] uppercase tracking-widest">

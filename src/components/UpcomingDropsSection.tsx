@@ -28,14 +28,14 @@ export const UpcomingDropsSection: React.FC<UpcomingDropsSectionProps> = ({ onNo
             >
               {/* Image box */}
               <div className="relative aspect-[3/4] overflow-hidden bg-[#201f1f]">
-                <div className="absolute top-2.5 left-2.5 z-10 bg-[#FFB800] text-[#121212] font-hanken text-[9px] font-extrabold tracking-widest uppercase px-2 py-0.5">
+                {/* <div className="absolute top-2.5 left-2.5 z-10 bg-[#FFB800] text-[#121212] font-hanken text-[9px] font-extrabold tracking-widest uppercase px-2 py-0.5">
                   {drop.tag}
-                </div>
+                </div> */}
 
                 <img
                   src={drop.image}
                   alt={drop.title}
-                  className="w-full h-full object-cover object-center grayscale contrast-125 group-hover:scale-105 transition-transform duration-700 ease-out"
+                  className="w-full h-full object-cover object-center contrast-125 group-hover:scale-105 transition-transform duration-700 ease-out"
                   referrerPolicy="no-referrer"
                 />
 

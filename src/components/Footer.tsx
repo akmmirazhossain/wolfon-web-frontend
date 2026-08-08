@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
-import { LOGO_STACKED } from '../data/mockData';
+import { LOGO_FOOTER } from '../data/mockData';
 
 interface FooterProps {
   onOpenPrivacyModal?: () => void;
@@ -18,15 +18,15 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-10 pb-16 border-b border-[#2C2C2C]">
           {/* Brand Identity */}
-          <div className="lg:col-span-4 space-y-4">
+          <div className="lg:col-span-4 ">
             <a href="#" className="inline-block">
               <img
-                src={LOGO_STACKED}
+                src={LOGO_FOOTER}
                 alt="WOLFON Logo"
-                className="h-24 w-auto object-contain"
+                className="h-16 w-auto object-contain"
               />
             </a>
-            <p className="font-hanken text-xs text-[#FFB800] uppercase tracking-widest pt-2">
+            <p className="font-hanken text-xs text-[#FFB800] uppercase tracking-widest  pl-0.5">
               STRENGTH IN EVERY STITCH.
             </p>
           </div>
@@ -101,6 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
               </h4>
               <div className="text-[11px] space-y-1 text-[#9e8f78]">
                 <div>AHAD HOSSAIN</div>
+                <div>Head of Business Development & Client Management</div>
                 <div>+49-176-57877318</div>
                 <div className="text-[#e5e2e1]">ahad@wolfonstyle.com</div>
                 <div>Augsburg, Germany</div>
@@ -114,7 +115,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
           <div className="flex items-center space-x-6">
             <span className="font-bold text-[#FFFFFF]">FOLLOW US</span>
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/wolfonstyle"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center space-x-1 hover:text-[#FFB800]"
@@ -123,12 +124,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
               <ArrowUpRight className="w-3 h-3" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.linkedin.com/company/wolfonstyle.com/posts/?feedView=all"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center space-x-1 hover:text-[#FFB800]"
             >
-              <span>INSTAGRAM</span>
+              <span>LINKEDIN</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
           </div>
