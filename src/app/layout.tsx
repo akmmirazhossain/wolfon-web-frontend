@@ -5,6 +5,10 @@ import '../index.css';
 export const metadata: Metadata = {
   title: 'WOLFON STYLE | Premium Apparel & Manufacturing',
   description: 'Premium apparel brand and customized manufacturing supply platform, featuring heavy-weight drop shoulder t-shirts, upcoming drops, and private label ordering.',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
 };
 
 export default function RootLayout({
