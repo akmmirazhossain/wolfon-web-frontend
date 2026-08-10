@@ -49,7 +49,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="bg-[#121212] border border-[#2C2C2C] max-w-4xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl"
+        className="bg-[#121212] border border-[#2C2C2C] max-w-2xl w-full max-h-[90vh] overflow-y-auto relative shadow-2xl"
       >
         {/* Close Button */}
         <button
@@ -59,26 +59,26 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           <X className="w-5 h-5" />
         </button>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-6 sm:p-10">
+        <div className="grid grid-cols-1 gap-8 p-6 sm:p-10">
           {/* Left Column - Product Image & Tech Badges */}
           <div className="space-y-4">
-            <div className="relative aspect-[3/4] bg-[#1c1b1b] border border-[#2C2C2C] overflow-hidden">
-              <span className="absolute top-3 left-3 z-10 bg-[#FFB800] text-[#121212] font-hanken text-[10px] font-extrabold tracking-widest uppercase px-3 py-1">
+            <div className="relative max-h-[75vh] bg-[#1c1b1b] border border-[#2C2C2C] overflow-hidden flex items-center justify-center">
+              {/* <span className="absolute top-3 left-3 z-10 bg-[#FFB800] text-[#121212] font-hanken text-[10px] font-extrabold tracking-widest uppercase px-3 py-1">
                 {product.tag}
               </span>
               <span className="absolute bottom-3 right-3 z-10 bg-[#121212]/90 border border-[#2C2C2C] text-[#e5e2e1] font-hanken text-[10px] font-bold tracking-wider uppercase px-3 py-1">
                 FACTORY SAMPLE READY
-              </span>
+              </span> */}
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover object-center filter contrast-110"
+                className="w-full h-full max-h-[75vh] object-contain filter contrast-110"
                 referrerPolicy="no-referrer"
               />
             </div>
 
             {/* Quick Specs badges */}
-            <div className="grid grid-cols-3 gap-2 text-center font-hanken text-[11px] text-[#9e8f78]">
+            {/* <div className="grid grid-cols-3 gap-2 text-center font-hanken text-[11px] text-[#9e8f78]">
               <div className="bg-[#1c1b1b] border border-[#2C2C2C] py-2.5 px-1">
                 <span className="block font-bold text-[#FFFFFF]">{product.gsm} GSM</span>
                 HEAVYWEIGHT KNIT
@@ -91,10 +91,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 <span className="block font-bold text-[#FFFFFF]">OVERSIZED</span>
                 DROP SHOULDER FIT
               </div>
-            </div>
+            </div> */}
           </div>
 
-          {/* Right Column - Manufacturing Tech Specs */}
+          {/* Right Column - Manufacturing Tech Specs (hidden for now) */}
+          {/*
           <div className="flex flex-col justify-between space-y-6">
             <div>
               <div className="font-hanken text-xs font-bold text-[#FFB800] uppercase tracking-widest mb-1">
@@ -119,7 +120,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 {product.description}
               </p>
 
-              {/* Fabric & Fit Details */}
               <div className="mt-5 space-y-2 font-hanken text-xs border-t border-[#2C2C2C] pt-4">
                 <div className="flex justify-between">
                   <span className="text-[#9e8f78]">FABRIC COMPOSITION:</span>
@@ -135,7 +135,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </div>
               </div>
 
-              {/* Customization Options */}
               <div className="mt-5">
                 <label className="block font-hanken text-xs font-bold uppercase tracking-widest text-[#FFFFFF] mb-2">
                   FACTORY CUSTOMIZATION OPTIONS
@@ -152,7 +151,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </div>
               </div>
 
-              {/* Colorway Selector */}
               <div className="mt-5">
                 <label className="block font-hanken text-xs font-bold uppercase tracking-widest text-[#FFFFFF] mb-2">
                   BASE COLORWAY: <span className="text-[#FFB800]">{selectedColor}</span>
@@ -172,7 +170,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </div>
               </div>
 
-              {/* Quantity Estimator */}
               <div className="mt-5">
                 <label className="block font-hanken text-xs font-bold uppercase tracking-widest text-[#FFFFFF] mb-2">
                   ESTIMATED BULK ORDER QUANTITY (PCS)
@@ -195,7 +192,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 </div>
               </div>
 
-              {/* Custom Tech Notes */}
               <div className="mt-4">
                 <label className="block font-hanken text-xs font-bold uppercase tracking-widest text-[#FFFFFF] mb-1">
                   CUSTOM PRINTING / LABELING REQUIREMENTS (OPTIONAL)
@@ -210,7 +206,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
             </div>
 
-            {/* Actions */}
             <div className="space-y-3 pt-4 border-t border-[#2C2C2C]">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <button
@@ -257,6 +252,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
             </div>
           </div>
+          */}
         </div>
       </div>
     </div>

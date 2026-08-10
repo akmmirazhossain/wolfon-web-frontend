@@ -20,16 +20,16 @@ export const FeaturedCategorySection: React.FC<FeaturedCategorySectionProps> = (
     <section id="drop-shoulder" className="py-24 bg-[#121212] border-t border-[#2C2C2C]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
+        <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <span className="font-hanken text-xs font-bold text-[#FFB800] tracking-[0.2em] uppercase">
             FEATURED GARMENT CATEGORY
           </span>
           <h2 className="font-anton text-4xl sm:text-6xl text-[#FFFFFF] tracking-tight uppercase">
             DROP SHOULDER T-SHIRTS
           </h2>
-          <p className="font-hanken text-sm sm:text-base text-[#c6c6c7]">
-            Heavyweight 280 GSM oversized essentials engineered for streetwear brands & wholesale buyers.
-          </p>
+          {/* <p className="font-hanken text-sm sm:text-base text-[#c6c6c7]">
+            Heavyweight oversized essentials engineered for streetwear brands & wholesale buyers.
+          </p> */}
         </div>
 
         {/* 4 Cards Grid */}
@@ -66,7 +66,7 @@ export const FeaturedCategorySection: React.FC<FeaturedCategorySectionProps> = (
 
                   {/* Hover Quick Actions */}
                   <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 gap-2 pointer-events-none z-20">
-                    <button
+                    {/* <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
@@ -76,9 +76,9 @@ export const FeaturedCategorySection: React.FC<FeaturedCategorySectionProps> = (
                     >
                       <Eye className="w-4 h-4" />
                       <span>VIEW TECH SPECS</span>
-                    </button>
+                    </button> */}
 
-                    <button
+                    {/* <button
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
@@ -100,6 +100,18 @@ export const FeaturedCategorySection: React.FC<FeaturedCategorySectionProps> = (
                           <span>ADD TO QUOTE LIST</span>
                         </>
                       )}
+                    </button> */}
+
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onSelectProduct(product);
+                      }}
+                      className="pointer-events-auto w-full max-w-[200px] bg-[#121212] text-[#FFFFFF] border border-[#2C2C2C] py-2.5 px-3 hover:bg-[#FFB800] hover:text-[#121212] transition-colors cursor-pointer flex items-center justify-center space-x-2 font-anton text-xs tracking-wider uppercase"
+                    >
+                      <Eye className="w-4 h-4" />
+                      <span>VIEW IMAGE</span>
                     </button>
                   </div>
                 </div>
@@ -116,13 +128,37 @@ export const FeaturedCategorySection: React.FC<FeaturedCategorySectionProps> = (
 
                   </div>
 
-                  <div className="pt-2 border-t border-[#2a2a2a] flex items-center justify-between text-[11px] font-hanken">
+                  {/* <div className="pt-2 border-t border-[#2a2a2a] flex items-center justify-between text-[11px] font-hanken">
                     <span className="text-[#FFB800] font-bold uppercase">
                       MOQ: {product.moq}
                     </span>
                     <span className="text-[#c6c6c7]">
                       LEAD TIME: {product.leadTime}
                     </span>
+                  </div> */}
+
+                  {/* Available Colorways */}
+                  <div className="pt-4 border-t border-[#2a2a2a] flex items-center space-x-2">
+                    <span
+                      className="w-4 h-4 rounded-full border border-[#353534]"
+                      style={{ backgroundColor: '#FFFFFF' }}
+                      title="White"
+                    />
+                    <span
+                      className="w-4 h-4 rounded-full border border-[#353534]"
+                      style={{ backgroundColor: '#000000' }}
+                      title="Black"
+                    />
+                    <span
+                      className="w-4 h-4 rounded-full border border-[#353534]"
+                      style={{ backgroundColor: '#5C4033' }}
+                      title="Brown"
+                    />
+                    <span
+                      className="w-4 h-4 rounded-full border border-[#353534]"
+                      style={{ backgroundColor: '#808080' }}
+                      title="Gray"
+                    />
                   </div>
                 </div>
               </div>

@@ -17,7 +17,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
     phone: '',
     serviceType: 'Private Label Manufacturing',
     moq: '100 - 500 pcs',
-    gsmPreference: '280 GSM (Heavyweight)',
+    gsmPreference: 'Heavyweight',
     fabricType: '100% Cotton',
     fabricColor: '#000000',
     notes: ''
@@ -88,7 +88,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
         ) : (
           <form onSubmit={handleSubmit} className="space-y-5">
             <p className="font-hanken text-xs text-[#c6c6c7]">
-              Leverage Wolfon&apos;s direct factory infrastructure in Bangladesh. We produce custom 240-360 GSM heavyweight garments, private label tagging, and raw fabric shipments worldwide.
+              Leverage Wolfon&apos;s direct factory infrastructure in Bangladesh. We produce custom heavyweight garments, knitting and dying, private label tagging, and raw fabric shipments worldwide.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -168,7 +168,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
 
               <div>
                 <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
-                  ESTIMATED MOQ
+                  ESTIMATED MOQ (QUANTITY)
                 </label>
                 <select
                   value={form.moq}
@@ -191,9 +191,9 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
                   onChange={(e) => setForm({ ...form, gsmPreference: e.target.value })}
                   className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
                 >
-                  <option>170 GSM (Lightweight)</option>
-                  <option>240 GSM (Midweight)</option>
-                  <option>280 GSM (Heavyweight)</option>
+                  <option>Lightweight</option>
+                  <option>Midweight</option>
+                  <option>Heavyweight</option>
                 </select>
               </div>
             </div>

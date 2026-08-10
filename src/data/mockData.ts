@@ -2,7 +2,7 @@ import { Product, UpcomingDrop, Capability } from "../types";
 
 export const LOGO_HORIZONTAL =
   "https://lh3.googleusercontent.com/aida-public/AB6AXuDeuJ2t8fkzP3pklIbMxjkzphh8dkXIuYUUBTsa5OXGR_LXmb7qhhpZoN6J-APM_SBcqeGERWV7KWQbXsINeQWPGEmovJ8EleM5XAEFW2rCaP4IonwFW7G1LQB3ZYGDUqbTCrBWTnhJtIaEBvvjUrgmxCRA0aGAwNXzDdKzAxpRGpo08OkTxzvg-YcyeCsYgcKYZkD6C5E_CNcdMjJcOrS4KeH-PT8ZDyqn_dfcyK9FzB4T10aVDyVJvUNU_lUGwUyGlA";
-export const LOGO_FOOTER = "/images/logo-footer.webp";
+export const LOGO_FOOTER = "/images/logo-horizontal.png";
 
 export const HERO_SLIDES = [
   {
@@ -15,7 +15,7 @@ export const HERO_SLIDES = [
   },
   {
     id: "slide-2",
-    eyebrow: "HEAVYWEIGHT FABRIC / 280-360 GSM",
+    eyebrow: "HEAVYWEIGHT FABRIC",
     title: "STRENGTH IN EVERY STITCH.",
     subtext:
       "Precision engineered cotton-blend clothing manufactured in Bangladesh with extreme structural durability and custom private label finishing.",
@@ -64,10 +64,9 @@ export const DROP_SHOULDER_PRODUCTS: Product[] = [
     leadTime: "7 - 12 Business Days",
     sampleAvailable: true,
     tag: "MUST-HAVE",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDjJ0S_jJUmfxw8dq-_XAcKJHrYAJBuotRkLM9gKMQKLmuiMVEX3fEmTMlV2_BBCxsNHxjifJkPj5CtVlUm284lOQhDfpbJEZMx6zjH5DJjNRvJqnOsnJ1hEtqy7-IR5d0P1P_qzC3XMr0YkDJE96jDXugpoOshcT5os9kTzOt3_E0S20WSOnTJlG4r4mtzQCDoQBM8ETIeHPd7aV40grSJF_-IP4Bnqc8CZzyHrWtV1FR5-MS8J9BfsZjN7ODch3ztew",
+    image: "/images/product/drop-shoulder-t/1.webp",
     description:
-      "Engineered heavy-weight 280 GSM combed cotton drop shoulder t-shirt. Features reinforced double-needle collar stitching, pre-shrunk finish, and seamless shoulder drape.",
+      "Engineered heavy-weight combed cotton drop shoulder t-shirt. Features reinforced double-needle collar stitching, pre-shrunk finish, and seamless shoulder drape.",
     gsm: 280,
     fabric: "95% Premium Combed Cotton, 5% Elastane",
     fit: "Boxy Oversized Drop Shoulder",
@@ -93,8 +92,7 @@ export const DROP_SHOULDER_PRODUCTS: Product[] = [
     leadTime: "7 - 12 Business Days",
     sampleAvailable: true,
     tag: "PREMIUM",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBhC7buQzUuPSxWt1Zm88z4rA6G5TfnpkJl5hENSRGy70fex_1ZVs_8rHkrJYj1_Rr-3vc1OJMyLgn-JHIWkwnuRVFgvVfBLtJE5SYhyxyhqo4Un0XBHfHT7MWBXLDHUWGdi3QFJJJOxR1bg6LJqPBSvBMe__fL-u0cAKNkSJLHb_n7VE5ANgHoFeMh-VTgkB4q-zzq35n3JjyV2Oa7_CybztCodRVjGPfca9N92BTfSazyu-p1aaHK0MyadwtcGBKb_g",
+    image: "/images/product/drop-shoulder-t/2.webp",
     description:
       "Earth-tone coffee shade oversized staple crafted with custom reactive garment dye. Soft-touch brushed interior with high tensile ribbing and anti-pilling structure.",
     gsm: 280,
@@ -121,8 +119,7 @@ export const DROP_SHOULDER_PRODUCTS: Product[] = [
     leadTime: "7 - 12 Business Days",
     sampleAvailable: true,
     tag: "VERSATILE",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuAv_hZcs-YokUBdBCl_1ufobLsT8JpkCLNz9N-atCyV-g_4xfwX_DKlV1f4-3s3FCw4zSKYbC-8pWPhfxApkCw9EOx8ogPvvc7Yea-XadTCljFCY_W5IWGsQcQVvJp7MkNvNkjgXwHWYijs1Q2G4wn3AHzb55A-dlAVdFdUlmk5tL-mX6cRY-ARz_-nIVbHZaSA-1Gnqk57yaDIdk2KzPcfKob8ThaVogDsci8pDtpV_WLiU2Z47-PYwp1sygRaIwC6xg",
+    image: "/images/product/drop-shoulder-t/3.webp",
     description:
       "Heather neutral grey essential t-shirt. High color fastness, pre-shrunk, anti-pilling structure, and clean minimalist finish suitable for custom brand printing.",
     gsm: 280,
@@ -149,8 +146,7 @@ export const DROP_SHOULDER_PRODUCTS: Product[] = [
     leadTime: "7 - 12 Business Days",
     sampleAvailable: true,
     tag: "ESSENTIAL",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuByCWLky8GyTwbnFiYpQNIfxUyeFbDLwLEQQEIasMF-x4bx_mBAm79DIQr5wkwiZvzgWWK3FBTQb5Fx0Moht_8_Wy5WhWQEht57YczKnPmcPKZVaoUuHXLgirXV7S2HUUPblgrr90u4nfkM4AYFlnJHmvQVkg6-CgYmhPfHXp8Wm6ZWcbnCbW9BCI0hh3pSkVJuIWK_tnOchT11ltwbqLm7CtJ80bPUPTbw6COuhKuO2SGaRv038JsCPfrkNFKpMePbIA",
+    image: "/images/product/drop-shoulder-t/4.webp",
     description:
       "Stark optical white heavy-weight drop shoulder. Opaque dense knit preventing transparency under daylight, designed specifically for DTG and screen printing.",
     gsm: 280,
@@ -176,8 +172,7 @@ export const UPCOMING_DROPS: UpcomingDrop[] = [
     id: "drop-polo",
     title: "POLO SHIRTS",
     category: "ESSENTIAL APPAREL",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDqDRlFUnNtpv-yn5mvr1EPx9hBsTk4r8FNpXMptMKfvlySuKyLsVtyjl-ngAbJNdZXP_n34UndpZ1JLWNJ86tjFv9l0LGK87XnRiEoR3zaeKF3s4DkLwuUipjSpEISYcWP3AOPelPdjVKsIj_VhbohVyfEJ2Jm6uiLkw-VJ7YJx1lE_FrD66-pMfd72VBgHj9im-WH9GnihoHL2B9sxjcLBzrNfgbe4rRZeVkHmh-rVMSHhsZdWWJ3qcx3K6yi5EjE214KDoDki823Iw",
+    image: "/images/product/polo/polo.webp",
     tag: "PRODUCTION READY",
     releaseDate: "BULK ORDERS OPEN",
   },
@@ -202,8 +197,7 @@ export const UPCOMING_DROPS: UpcomingDrop[] = [
     id: "drop-jacket",
     title: "JACKETS",
     category: "OUTERWEAR",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDq_jAxOZf2Fe5iAmbE9Gw1hXyK_OKYF10lHSEcy0Ujkmd4bDaRiyodnjqtiiWDjU0J9BRdZzz3Li7xCmYYwh8YdVSqFplhJFT5xavknX_InJXTnKNH9fl-hwfWxSYoxrZCuSyRnXxa0p1p-y5jh9iwQkI743zz61ZSJDJ2H_Dey-lj6r5EsYNUoCYjtRuVYbzxWIeeQq6kXZuKVICc9CRY3sv0Q1_3bJf24g6PBJbeGrjoIhHDDIYZpL3IxxPeNWmG9g",
+    image: "/images/product/jacket/jacket.webp",
     tag: "DEVELOPMENT",
     releaseDate: "INQUIRE SPEC SHEET",
   },

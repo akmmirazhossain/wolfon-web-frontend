@@ -51,7 +51,10 @@ export const ContactSection: React.FC = () => {
                 {CONTACT_INFO.contactPerson}
               </div>
               <div className="text-[#9e8f78]">{CONTACT_INFO.role}</div>
-              <div className="text-[#e5e2e1] pt-1">{CONTACT_INFO.phone}</div>
+              <div className="text-[#e5e2e1] pt-1 flex items-center gap-2">
+                <img src="https://flagcdn.com/w20/de.png" alt="Germany" className="w-4 h-auto inline-block" />
+                <span>{CONTACT_INFO.phone}</span>
+              </div>
               <div className="text-[#FFB800]">{CONTACT_INFO.email}</div>
               <div className="text-[#9e8f78]">{CONTACT_INFO.location}</div>
             </div>

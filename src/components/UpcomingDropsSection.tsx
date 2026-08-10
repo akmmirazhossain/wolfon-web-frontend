@@ -3,7 +3,7 @@
 import React from 'react';
 import { UpcomingDrop } from '../types';
 import { UPCOMING_DROPS } from '../data/mockData';
-import { Bell } from 'lucide-react';
+import { Bell, Eye } from 'lucide-react';
 
 interface UpcomingDropsSectionProps {
   onNotifyDrop: (drop: UpcomingDrop) => void;
@@ -39,8 +39,19 @@ export const UpcomingDropsSection: React.FC<UpcomingDropsSectionProps> = ({ onNo
                   referrerPolicy="no-referrer"
                 />
 
+
                 {/* Hover Notify Overlay */}
                 <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center pointer-events-none">
+                  <Eye className="w-8 h-8 text-[#FFB800] mb-2" />
+                  <span className="font-anton text-xs text-[#FFFFFF] tracking-widest uppercase">
+                    VIEW IMAGE
+                  </span>
+                  {/* <span className="font-hanken text-[10px] text-[#FFB800] mt-1">
+                    {drop.releaseDate}
+                  </span> */}
+                </div>
+
+                {/* <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center p-4 text-center pointer-events-none">
                   <Bell className="w-8 h-8 text-[#FFB800] mb-2 animate-bounce" />
                   <span className="font-anton text-xs text-[#FFFFFF] tracking-widest uppercase">
                     NOTIFY ME ON RELEASE
@@ -48,7 +59,7 @@ export const UpcomingDropsSection: React.FC<UpcomingDropsSectionProps> = ({ onNo
                   <span className="font-hanken text-[10px] text-[#FFB800] mt-1">
                     {drop.releaseDate}
                   </span>
-                </div>
+                </div> */}
               </div>
 
               {/* Title bar */}

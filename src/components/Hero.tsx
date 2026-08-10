@@ -32,8 +32,8 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onOpenB2B }) => {
           referrerPolicy="no-referrer"
         />
         {/* Dark Overlays for text legibility and editorial mood */}
-        {/* <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/70 via-[#121212]/20 to-transparent" /> */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-[#121212]/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#121212]/70 via-[#121212]/20 to-transparent" />
       </div>
 
       {/* Hero Content Box */}

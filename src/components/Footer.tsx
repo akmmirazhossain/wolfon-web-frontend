@@ -23,7 +23,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
               <img
                 src={LOGO_FOOTER}
                 alt="WOLFON Logo"
-                className="h-16 w-auto object-contain"
+                className="h-12 w-auto object-contain"
               />
             </a>
             <p className="font-hanken text-xs text-[#FFB800] uppercase tracking-widest  pl-0.5">
@@ -102,7 +102,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
               <div className="text-[11px] space-y-1 text-[#9e8f78]">
                 <div>AHAD HOSSAIN</div>
                 <div>Head of Business Development & Client Management</div>
-                <div>+49-176-57877318</div>
+                <div className="text-[#e5e2e1] flex items-center gap-1.5">
+                  <img src="https://flagcdn.com/w20/de.png" alt="Germany" className="w-4 h-auto inline-block" />
+                  <span>+49-176-57877318</span>
+                </div>
                 <div className="text-[#e5e2e1]">ahad@wolfonstyle.com</div>
                 <div>Augsburg, Germany</div>
               </div>
@@ -136,7 +139,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
 
           <div className="text-center sm:text-right">
             <span>© 2026 WOLFON. STRENGTH IN EVERY STITCH.</span>
-            <span className="block sm:inline sm:ml-4 text-[10px] text-[#514532]">DEVELOPED BY EPCODEIT</span>
+            <span className="block sm:inline sm:ml-4 text-[10px] ">DEVELOPED BY EPICODE</span>
           </div>
         </div>
       </div>
