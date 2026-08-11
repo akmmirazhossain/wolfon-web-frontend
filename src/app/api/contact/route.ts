@@ -127,7 +127,7 @@ export async function POST(request: Request) {
 `;
 
     await resend.emails.send({
-      from: "Wolfon Website <onboarding@resend.dev>", // TODO: swap to your verified sending domain
+      from: "Wolfon Website <contact@wolfonstyle.com>", // TODO: swap to your verified sending domain
       to: "ahad@wolfonstyle.com",
       replyTo: email,
       subject: `New Contact Message: ${subject || "General Inquiry"} — ${name}`,
