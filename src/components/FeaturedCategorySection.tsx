@@ -25,7 +25,7 @@ export const FeaturedCategorySection: React.FC<FeaturedCategorySectionProps> = (
             FEATURED GARMENT CATEGORY
           </span>
           <h2 className="font-anton text-4xl sm:text-6xl text-[#FFFFFF] tracking-tight uppercase">
-            DROP SHOULDER T-SHIRTS
+            DROP SEAM T-SHIRTS
           </h2>
           {/* <p className="font-hanken text-sm sm:text-base text-[#c6c6c7]">
             Heavyweight oversized essentials engineered for streetwear brands & wholesale buyers.

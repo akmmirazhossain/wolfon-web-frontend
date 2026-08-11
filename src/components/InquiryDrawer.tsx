@@ -140,11 +140,10 @@ export const InquiryDrawer: React.FC<InquiryDrawerProps> = ({
                                 <button
                                   key={qtyVal}
                                   onClick={() => onUpdateQty(idx, qtyVal)}
-                                  className={`px-2 py-1 text-[10px] font-anton transition-colors ${
-                                    item.estimatedQuantity === qtyVal
+                                  className={`px-2 py-1 text-[10px] font-anton transition-colors ${item.estimatedQuantity === qtyVal
                                       ? 'bg-[#FFB800] text-[#121212]'
                                       : 'bg-[#1c1b1b] text-[#c6c6c7] border border-[#2C2C2C] hover:border-[#FFB800]'
-                                  }`}
+                                    }`}
                                 >
                                   {qtyVal}
                                 </button>
@@ -180,7 +179,7 @@ export const InquiryDrawer: React.FC<InquiryDrawerProps> = ({
                 <div className="space-y-3 pt-2">
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                      <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                         COMPANY / BRAND *
                       </label>
                       <input
@@ -193,7 +192,7 @@ export const InquiryDrawer: React.FC<InquiryDrawerProps> = ({
                       />
                     </div>
                     <div>
-                      <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                      <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                         CONTACT NAME *
                       </label>
                       <input
@@ -209,7 +208,7 @@ export const InquiryDrawer: React.FC<InquiryDrawerProps> = ({
 
                   <div className="grid grid-cols-2 gap-3">
                     <div>
-                      <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                      <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                         BUSINESS EMAIL *
                       </label>
                       <input
@@ -222,7 +221,7 @@ export const InquiryDrawer: React.FC<InquiryDrawerProps> = ({
                       />
                     </div>
                     <div>
-                      <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                      <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                         PHONE / WHATSAPP
                       </label>
                       <input
@@ -236,7 +235,7 @@ export const InquiryDrawer: React.FC<InquiryDrawerProps> = ({
                   </div>
 
                   <div>
-                    <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                    <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                       DESTINATION COUNTRY / PORT (FOR FOB / CIF QUOTE)
                     </label>
                     <input
@@ -249,7 +248,7 @@ export const InquiryDrawer: React.FC<InquiryDrawerProps> = ({
                   </div>
 
                   <div>
-                    <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                    <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                       ADDITIONAL TECH PACK OR PACKAGING NOTES
                     </label>
                     <textarea

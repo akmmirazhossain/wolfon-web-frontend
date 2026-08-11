@@ -19,7 +19,7 @@ export const UpcomingDropsSection: React.FC<UpcomingDropsSectionProps> = ({ onNo
         </h2>
 
         {/* 5 Grid items */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {UPCOMING_DROPS.map((drop) => (
             <div
               key={drop.id}

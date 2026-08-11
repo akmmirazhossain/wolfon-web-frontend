@@ -176,15 +176,15 @@ export const UPCOMING_DROPS: UpcomingDrop[] = [
     tag: "PRODUCTION READY",
     releaseDate: "BULK ORDERS OPEN",
   },
-  {
-    id: "drop-seam",
-    title: "DROPPED SEAM T-SHIRTS",
-    category: "STREETWEAR",
-    image:
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBEmP5B1IoE1qsUUSbIpAqGryMbjKKnweRyNRKxxcso_-9BgAK41Kmxi_UvcW6_dlTKCgjwRGgmqfllGOEtyEHjBP8sZCRNYGcRkEUjvmxZnJfZWwE7jVxqreKGO2K1Kg3ng4NnNhQrPn3sW4jLfX8_nSJbrCeA7qE4xTEXgGe7tEL4lLzx0JHoeCEFF2L1t2SW2aNcvkq2JriW9Rk-IUXyv5irBUyDjzBVRzHVvObT04f-EXE7cBuE",
-    tag: "PRODUCTION READY",
-    releaseDate: "BULK ORDERS OPEN",
-  },
+  // {
+  //   id: "drop-seam",
+  //   title: "DROPPED SEAM T-SHIRTS",
+  //   category: "STREETWEAR",
+  //   image:
+  //     "https://lh3.googleusercontent.com/aida-public/AB6AXuBEmP5B1IoE1qsUUSbIpAqGryMbjKKnweRyNRKxxcso_-9BgAK41Kmxi_UvcW6_dlTKCgjwRGgmqfllGOEtyEHjBP8sZCRNYGcRkEUjvmxZnJfZWwE7jVxqreKGO2K1Kg3ng4NnNhQrPn3sW4jLfX8_nSJbrCeA7qE4xTEXgGe7tEL4lLzx0JHoeCEFF2L1t2SW2aNcvkq2JriW9Rk-IUXyv5irBUyDjzBVRzHVvObT04f-EXE7cBuE",
+  //   tag: "PRODUCTION READY",
+  //   releaseDate: "BULK ORDERS OPEN",
+  // },
   {
     id: "drop-hoodie",
     title: "HOODIES",

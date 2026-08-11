@@ -9,6 +9,10 @@ interface B2BQuoteModalProps {
 }
 
 export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose }) => {
+
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     company: '',
@@ -23,6 +27,29 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
     notes: ''
   });
 
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const res = await fetch('/api/b2b-quote', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) throw new Error('Failed to send');
+
+      setSubmitted(true);
+    } catch (err) {
+      setSubmitError('Something went wrong. Please try again or email us directly.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
   React.useEffect(() => {
     if (isOpen) {
       setSubmitted(false);
@@ -31,10 +58,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setSubmitted(true);
-  };
+
 
   return (
     <div
@@ -87,13 +111,13 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-5">
-            <p className="font-hanken text-xs text-[#c6c6c7]">
+            <p className="font-hanken text-sm text-[#c6c6c7]">
               Leverage Wolfon&apos;s direct factory infrastructure in Bangladesh. We produce custom heavyweight garments, knitting and dying, private label tagging, and raw fabric shipments worldwide.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                   COMPANY / BRAND NAME *
                 </label>
                 <input
@@ -107,7 +131,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
               </div>
 
               <div>
-                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                   CONTACT PERSON *
                 </label>
                 <input
@@ -123,7 +147,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                   BUSINESS EMAIL *
                 </label>
                 <input
@@ -137,12 +161,13 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
               </div>
 
               <div>
-                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
-                  PHONE / WHATSAPP
+                <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
+                  PHONE / WHATSAPP *
                 </label>
                 <input
                   type="text"
                   value={form.phone}
+                  required
                   onChange={(e) => setForm({ ...form, phone: e.target.value })}
                   placeholder="+1 (555) 000-0000"
                   className="w-full bg-[#1c1b1b] border border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] text-xs p-3 outline-none"
@@ -152,7 +177,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
 
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
               <div>
-                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                   SERVICE TYPE
                 </label>
                 <select
@@ -167,7 +192,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
               </div>
 
               <div>
-                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                   ESTIMATED MOQ (QUANTITY)
                 </label>
                 <select
@@ -183,7 +208,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
               </div>
 
               <div>
-                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                   FABRIC GSM
                 </label>
                 <select
@@ -200,7 +225,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                   FABRIC TYPE
                 </label>
                 <select
@@ -223,7 +248,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
               </div>
 
               <div>
-                <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+                <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                   FABRIC COLOR
                 </label>
                 <div className="flex items-center space-x-2">
@@ -247,7 +272,7 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
             </div>
 
             <div>
-              <label className="block font-hanken text-xs font-bold uppercase text-[#FFFFFF] mb-1">
+              <label className="block font-hanken text-sm font-bold uppercase text-[#FFFFFF] mb-1.5">
                 ADDITIONAL SPECIFICATIONS
               </label>
               <textarea
@@ -267,10 +292,14 @@ export const B2BQuoteModal: React.FC<B2BQuoteModalProps> = ({ isOpen, onClose })
 
               <button
                 type="submit"
-                className="bg-[#FFB800] text-[#121212] font-anton text-base tracking-widest px-8 py-3.5 uppercase hover:bg-[#e0a200] transition-colors cursor-pointer"
+                disabled={submitting}
+                className="bg-[#FFB800] text-[#121212] font-anton text-base tracking-widest px-8 py-3.5 uppercase hover:bg-[#e0a200] transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                REQUEST B2B QUOTE
+                {submitting ? 'SENDING...' : 'REQUEST B2B QUOTE'}
               </button>
+              {submitError && (
+                <p className="text-red-400 text-xs font-hanken mt-2">{submitError}</p>
+              )}
             </div>
           </form>
         )}

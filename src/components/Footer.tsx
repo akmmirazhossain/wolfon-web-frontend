@@ -126,6 +126,16 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
               <span>FACEBOOK</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
+
+            <a
+              href="https://www.instagram.com/wilfon111?igsh=dGdneWxyOWphcnpy"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center space-x-1 hover:text-[#FFB800]"
+            >
+              <span>INSTAGRAM</span>
+              <ArrowUpRight className="w-3 h-3" />
+            </a>
             <a
               href="https://www.linkedin.com/company/wolfonstyle.com/posts/?feedView=all"
               target="_blank"
@@ -135,6 +145,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
               <span>LINKEDIN</span>
               <ArrowUpRight className="w-3 h-3" />
             </a>
+
           </div>
 
           <div className="text-center sm:text-right">
