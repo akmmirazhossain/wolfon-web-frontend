@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { CONTACT_INFO } from '../data/mockData';
-import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, CheckCircle2, Loader2, AlertCircle } from 'lucide-react';
 
 export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -12,11 +12,33 @@ export const ContactSection: React.FC = () => {
     message: ''
   });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;
-    setSubmitted(true);
+
+    setIsSubmitting(true);
+    setError('');
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!res.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      setSubmitted(true);
+    } catch (err) {
+      setError('Something went wrong sending your message. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -46,7 +68,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Direct Contact Person Meta */}
-            <div className="mb-8 font-hanken text-xs space-y-1 text-[#c6c6c7]">
+            <div className="mb-8 font-hanken text-sm space-y-1 text-[#c6c6c7]">
               <div className="font-bold text-[#FFFFFF] tracking-wider text-sm uppercase">
                 {CONTACT_INFO.contactPerson}
               </div>
@@ -55,6 +77,7 @@ export const ContactSection: React.FC = () => {
                 <img src="https://flagcdn.com/w20/de.png" alt="Germany" className="w-4 h-auto inline-block" />
                 <span>{CONTACT_INFO.phone}</span>
               </div>
+
               <div className="text-[#FFB800]">{CONTACT_INFO.email}</div>
               <div className="text-[#9e8f78]">{CONTACT_INFO.location}</div>
             </div>
@@ -87,10 +110,11 @@ export const ContactSection: React.FC = () => {
                   <input
                     type="text"
                     required
+                    disabled={isSubmitting}
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Enter your full name or company"
-                    className="w-full bg-[#121212] border-b border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] font-hanken text-sm px-3 py-2.5 outline-none transition-colors"
+                    className="w-full bg-[#121212] border-b border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] font-hanken text-sm px-3 py-2.5 outline-none transition-colors disabled:opacity-50"
                   />
                 </div>
 
@@ -101,10 +125,11 @@ export const ContactSection: React.FC = () => {
                   <input
                     type="email"
                     required
+                    disabled={isSubmitting}
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="your.email@domain.com"
-                    className="w-full bg-[#121212] border-b border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] font-hanken text-sm px-3 py-2.5 outline-none transition-colors"
+                    className="w-full bg-[#121212] border-b border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] font-hanken text-sm px-3 py-2.5 outline-none transition-colors disabled:opacity-50"
                   />
                 </div>
 
@@ -114,10 +139,11 @@ export const ContactSection: React.FC = () => {
                   </label>
                   <input
                     type="text"
+                    disabled={isSubmitting}
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                     placeholder="e.g. Bulk Order / Private Label Supply"
-                    className="w-full bg-[#121212] border-b border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] font-hanken text-sm px-3 py-2.5 outline-none transition-colors"
+                    className="w-full bg-[#121212] border-b border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] font-hanken text-sm px-3 py-2.5 outline-none transition-colors disabled:opacity-50"
                   />
                 </div>
 
@@ -128,18 +154,34 @@ export const ContactSection: React.FC = () => {
                   <textarea
                     rows={4}
                     required
+                    disabled={isSubmitting}
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Describe your project, quantity requirement, or product specifications..."
-                    className="w-full bg-[#121212] border-b border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] font-hanken text-sm px-3 py-2.5 outline-none transition-colors resize-none"
+                    className="w-full bg-[#121212] border-b border-[#353534] focus:border-[#FFB800] text-[#FFFFFF] font-hanken text-sm px-3 py-2.5 outline-none transition-colors resize-none disabled:opacity-50"
                   />
                 </div>
 
+                {error && (
+                  <div className="flex items-start space-x-2 bg-[#2a1414] border border-red-900 p-3">
+                    <AlertCircle className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
+                    <p className="font-hanken text-xs text-red-400">{error}</p>
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full bg-[#FFB800] text-[#121212] font-anton text-lg tracking-widest py-4 uppercase hover:bg-[#e0a200] transition-colors cursor-pointer mt-4"
+                  disabled={isSubmitting}
+                  className="w-full bg-[#FFB800] text-[#121212] font-anton text-lg tracking-widest py-4 uppercase hover:bg-[#e0a200] transition-colors cursor-pointer mt-4 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
                 >
-                  SEND MESSAGE
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-5 h-5 animate-spin" />
+                      <span>SENDING...</span>
+                    </>
+                  ) : (
+                    <span>SEND MESSAGE</span>
+                  )}
                 </button>
               </form>
             )}

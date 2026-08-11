@@ -2,39 +2,27 @@ import { Resend } from "resend";
 import { NextResponse } from "next/server";
 
 export async function POST(request: Request) {
-  if (!process.env.RESEND_API_KEY) return;
-
-  const resend = new Resend(process.env.RESEND_API_KEY);
   try {
-    const form = await request.json();
+    if (!process.env.RESEND_API_KEY) {
+      return NextResponse.json(
+        { error: "Email service not configured" },
+        { status: 500 },
+      );
+    }
 
-    const {
-      company,
-      name,
-      email,
-      phone,
-      serviceType,
-      moq,
-      gsmPreference,
-      fabricType,
-      fabricColor,
-      notes,
-    } = form;
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    if (!company || !name || !email) {
+    const { name, email, subject, message } = await request.json();
+
+    if (!name || !email || !message) {
       return NextResponse.json(
         { error: "Missing required fields" },
         { status: 400 },
       );
     }
 
-    const { data, error } = await resend.emails.send({
-      from: "Wolfon B2B Inquery <inquery@wolfonstyle.com>", // swap once your domain is verified on Resend
-      to: (process.env.RESEND_TO_EMAILS || "ahad@wolfonstyle.com").split(","),
-      replyTo: email,
-      subject: `New B2B Inquiry: ${company}`,
-      html: `
-        <!DOCTYPE html>
+    const emailHtml = `
+<!DOCTYPE html>
 <html>
   <body style="margin:0; padding:0; background-color:#f4f4f4; font-family: 'Helvetica Neue', Arial, sans-serif;">
     <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f4; padding:32px 16px;">
@@ -63,10 +51,10 @@ export async function POST(request: Request) {
             <tr>
               <td style="padding:32px 32px 8px 32px;">
                 <p style="margin:0 0 4px 0; font-size:11px; font-weight:700; letter-spacing:2px; color:#FFB800; text-transform:uppercase;">
-                  B2B &amp; Private Label Supply
+                  Website Contact Form
                 </p>
                 <h2 style="margin:0; font-size:24px; font-weight:800; color:#121212; text-transform:uppercase;">
-                  New Wholesale &amp; Manufacturing Inquiry
+                  New Contact Message
                 </h2>
               </td>
             </tr>
@@ -76,19 +64,14 @@ export async function POST(request: Request) {
               <td style="padding:24px 32px 32px 32px;">
                 <table width="100%" cellpadding="0" cellspacing="0" style="border-collapse:collapse;">
                   ${[
-                    ["Company", company],
-                    ["Contact Person", name],
+                    ["Name", name],
                     ["Email", email],
-                    ["Phone", phone || "N/A"],
-                    ["Service Type", serviceType],
-                    ["Estimated MOQ", moq],
-                    ["Fabric GSM", gsmPreference],
-                    ["Fabric Type", fabricType],
+                    ["Subject", subject || "N/A"],
                   ]
                     .map(
                       ([label, value], i) => `
                     <tr style="background-color:${i % 2 === 0 ? "#f9f9f9" : "#ffffff"};">
-                      <td style="padding:12px 16px; font-size:12px; font-weight:700; color:#9e8f78; text-transform:uppercase; letter-spacing:0.5px; width:40%; border-bottom:1px solid #ececec;">
+                      <td style="padding:12px 16px; font-size:12px; font-weight:700; color:#9e8f78; text-transform:uppercase; letter-spacing:0.5px; width:30%; border-bottom:1px solid #ececec;">
                         ${label}
                       </td>
                       <td style="padding:12px 16px; font-size:14px; color:#121212; border-bottom:1px solid #ececec;">
@@ -98,30 +81,28 @@ export async function POST(request: Request) {
                     )
                     .join("")}
 
-                  <!-- Fabric Color with swatch -->
-                  <tr style="background-color:#f9f9f9;">
-                    <td style="padding:12px 16px; font-size:12px; font-weight:700; color:#9e8f78; text-transform:uppercase; letter-spacing:0.5px; border-bottom:1px solid #ececec;">
-                      Fabric Color
+                  <!-- Message -->
+                  <tr style="background-color:#ffffff;">
+                    <td style="padding:12px 16px; font-size:12px; font-weight:700; color:#9e8f78; text-transform:uppercase; letter-spacing:0.5px; vertical-align:top; border-bottom:1px solid #ececec;">
+                      Message
                     </td>
-                    <td style="padding:12px 16px; font-size:14px; color:#121212; border-bottom:1px solid #ececec;">
-                      <table cellpadding="0" cellspacing="0">
-                        <tr>
-                          <td style="padding-right:8px;">
-                            <span style="display:inline-block; width:16px; height:16px; background-color:${fabricColor}; border:1px solid #d0d0d0; border-radius:3px;"></span>
-                          </td>
-                          <td style="font-family: monospace; font-size:13px;">${fabricColor}</td>
-                        </tr>
-                      </table>
+                    <td style="padding:12px 16px; font-size:14px; color:#121212; line-height:1.6; border-bottom:1px solid #ececec; white-space:pre-wrap;">
+                      ${message}
                     </td>
                   </tr>
+                </table>
+              </td>
+            </tr>
 
-                  <!-- Notes -->
+            <!-- Reply CTA -->
+            <tr>
+              <td style="padding:0 32px 32px 32px;">
+                <table cellpadding="0" cellspacing="0">
                   <tr>
-                    <td style="padding:12px 16px; font-size:12px; font-weight:700; color:#9e8f78; text-transform:uppercase; letter-spacing:0.5px; vertical-align:top; border-bottom:1px solid #ececec;">
-                      Notes
-                    </td>
-                    <td style="padding:12px 16px; font-size:14px; color:#121212; line-height:1.5; border-bottom:1px solid #ececec;">
-                      ${notes || "N/A"}
+                    <td style="background-color:#FFB800; border-radius:2px;">
+                      <a href="mailto:${email}" style="display:inline-block; padding:12px 24px; font-size:12px; font-weight:800; letter-spacing:1px; color:#121212; text-decoration:none; text-transform:uppercase;">
+                        Reply to ${name}
+                      </a>
                     </td>
                   </tr>
                 </table>
@@ -142,17 +123,22 @@ export async function POST(request: Request) {
       </tr>
     </table>
   </body>
-</html>`,
+</html>
+`;
+
+    await resend.emails.send({
+      from: "Wolfon Website <onboarding@resend.dev>", // TODO: swap to your verified sending domain
+      to: "ahad@wolfonstyle.com",
+      replyTo: email,
+      subject: `New Contact Message: ${subject || "General Inquiry"} — ${name}`,
+      html: emailHtml,
     });
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 500 });
-    }
-
-    return NextResponse.json({ success: true, id: data?.id });
-  } catch (err) {
+    return NextResponse.json({ success: true });
+  } catch (error) {
+    console.error(error);
     return NextResponse.json(
-      { error: "Failed to send inquiry" },
+      { error: "Failed to send message" },
       { status: 500 },
     );
   }
