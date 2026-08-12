@@ -28,7 +28,7 @@ export const Hero: React.FC<HeroProps> = ({ onExplore, onOpenB2B }) => {
         <img
           src={slide.bgImage}
           alt="Wolfon Premium Apparel Collection"
-          className="w-full h-full object-cover object-center filter brightness-75 contrast-125 transition-all duration-1000 ease-in-out scale-105"
+          className="w-full h-full object-cover object-top filter brightness-75 contrast-125 transition-all duration-1000 ease-in-out scale-105"
           referrerPolicy="no-referrer"
         />
         {/* Dark Overlays for text legibility and editorial mood */}
