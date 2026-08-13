@@ -113,7 +113,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Primary CTA: B2B Quote Modal */}
           <button
             onClick={onOpenB2B}
-            className="inline-flex items-center space-x-1 px-4 py-2 bg-[#FFB800] text-[#121212] text-[11px] font-anton tracking-widest uppercase hover:bg-[#e0a200] transition-all cursor-pointer shadow-sm"
+            className="relative inline-flex items-center space-x-1 px-4 py-2 bg-[#FFB800] text-[#121212] text-[11px] font-anton tracking-widest uppercase hover:bg-[#e0a200] hover:scale-105 transition-all duration-200 cursor-pointer shadow-sm animate-glow-pulse"
           >
             <FileText className="w-3.5 h-3.5" />
             <span>REQUEST B2B QUOTE</span>

@@ -1,8 +1,7 @@
 import { Product, UpcomingDrop, Capability } from "../types";
 
-export const LOGO_HORIZONTAL =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuDeuJ2t8fkzP3pklIbMxjkzphh8dkXIuYUUBTsa5OXGR_LXmb7qhhpZoN6J-APM_SBcqeGERWV7KWQbXsINeQWPGEmovJ8EleM5XAEFW2rCaP4IonwFW7G1LQB3ZYGDUqbTCrBWTnhJtIaEBvvjUrgmxCRA0aGAwNXzDdKzAxpRGpo08OkTxzvg-YcyeCsYgcKYZkD6C5E_CNcdMjJcOrS4KeH-PT8ZDyqn_dfcyK9FzB4T10aVDyVJvUNU_lUGwUyGlA";
-export const LOGO_FOOTER = "/images/logo-horizontal.png";
+export const LOGO_HORIZONTAL = "/images/logo-horizontal.webp";
+export const LOGO_FOOTER = "/images/logo-horizontal.webp";
 
 export const HERO_SLIDES = [
   {
