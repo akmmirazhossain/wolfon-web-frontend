@@ -11,14 +11,14 @@ export const metadata: Metadata = {
     description: 'Direct factory apparel manufacturing in Bangladesh — heavyweight essentials, private label supply, and raw materials for global brands.',
     url: 'https://wolfonstyle.com',
     siteName: 'Wolfon Style',
-    images: [{ url: '/images/meta/og-image.webp', width: 1200, height: 630 }],
+    images: [{ url: '/images/meta/og-main.webp', width: 1200, height: 630 }],
     type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'WOLFON STYLE | Premium Apparel & Manufacturing',
     description: 'Direct factory apparel manufacturing in Bangladesh — heavyweight essentials, private label supply, and raw materials for global brands.',
-    images: ['/images/meta/og-image.webp'],
+    images: ['/images/meta/og-main.webp'],
   },
 };
 
