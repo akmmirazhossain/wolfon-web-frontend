@@ -5,9 +5,19 @@ import '../index.css';
 export const metadata: Metadata = {
   title: 'WOLFON STYLE | Premium Apparel & Manufacturing',
   description: 'Premium apparel brand and customized manufacturing supply platform, featuring heavy-weight drop shoulder t-shirts, upcoming drops, and private label ordering.',
-  icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+  openGraph: {
+    title: 'WOLFON STYLE | Premium Apparel & Manufacturing',
+    description: 'Direct factory apparel manufacturing in Bangladesh — heavyweight essentials, private label supply, and raw materials for global brands.',
+    url: 'https://wolfonstyle.com',
+    siteName: 'Wolfon Style',
+    images: [{ url: '/images/meta/og-image.webp', width: 1200, height: 630 }],
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'WOLFON STYLE | Premium Apparel & Manufacturing',
+    description: 'Direct factory apparel manufacturing in Bangladesh — heavyweight essentials, private label supply, and raw materials for global brands.',
+    images: ['/images/meta/og-image.webp'],
   },
 };
 
