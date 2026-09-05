@@ -150,7 +150,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenPrivacyModal, onOpenTermsM
 
           <div className="text-center sm:text-right">
             <span>© 2026 WOLFON. STRENGTH IN EVERY STITCH.</span>
-            <span className="block sm:inline sm:ml-4 text-[10px] ">DEVELOPED BY EPICODE</span>
+            <span className="block sm:inline sm:ml-4 text-[10px]">
+              DEVELOPED BY{" "}
+
+              <a href="https://epicodeit.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                EPICODE IT
+              </a>
+            </span>
           </div>
         </div>
       </div>
